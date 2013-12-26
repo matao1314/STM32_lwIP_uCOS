@@ -253,7 +253,7 @@ void LCD_Init(void)
 		LCD_GPIO_Config();
 		LCD_FSMC_Config();
 
-	    GPIO_ResetBits(GPIOE, GPIO_Pin_1);
+	  GPIO_ResetBits(GPIOE, GPIO_Pin_1);
     delay_ms(10);			
     GPIO_SetBits(GPIOE, GPIO_Pin_1 );		 	 
     delay_ms(10);			

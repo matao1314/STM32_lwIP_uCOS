@@ -3,13 +3,6 @@
 //#include "timerx.h"
 #include <stdio.h>
 #include "enc28j60.h"	  
-//////////////////////////////////////////////////////////////////////////////////	 
-//ALIENTEK战舰STM32开发板
-//ENC28J60驱动 代码	   
-//正点原子@ALIENTEK
-//技术论坛:www.openedv.com
-//修改日期:2012/9/28
-//版本：V1.0			   								  
 //////////////////////////////////////////////////////////////////////////////////
 
 static u8 ENC28J60BANK;
@@ -20,28 +13,6 @@ static u32 NextPacketPtr;
 //包括SPI初始化/IO初始化等
 void ENC28J60_Reset(void)
 {
-	RCC->APB2ENR|=1<<3;     //使能PORTB时钟 	    
- 	RCC->APB2ENR|=1<<5;		//使能PORTD时钟
- 	RCC->APB2ENR|=1<<8;		//使能PORTG时钟
-	GPIOD->CRL&=0XFFFFF0FF; 
-	GPIOD->CRL|=0X00000300;	//PD2 推挽 	    
-	GPIOD->ODR|=1<<2;    	//PD2上拉			  
-	//这里PG7和PB12拉高,是为了防止NRF24L01和SPI FLASH影响.
-	//因为他们共用一个SPI口. 
-	GPIOB->CRH&=0XFFF0FFFF; 
-	GPIOB->CRH|=0X00030000;	//PB12 推挽 	    
-	GPIOB->ODR|=1<<12;     	//PB12上拉
-	GPIOG->CRL&=0X00FFFFFF; 
-	GPIOG->CRL|=0X33000000;	//PG6/7 推挽 	    
-	GPIOG->CRH&=0XFFFFFFF0; 
-	GPIOG->CRH|=0X00000003;	//PG8 推挽 	    
-	GPIOG->ODR|=7<<6;    	//PG6/7/8 上拉
- 	SPI2_Init();			//初始化SPI2
-	//针对ENC28J60的特点(SCK空闲为低电平)修改SPI的设置
- 	SPI2->CR1&=~(1<<6); 	//SPI设备失能
-	SPI2->CR1&=~(1<<1); 	//空闲模式下SCK为0 CPOL=0
-	SPI2->CR1&=~(1<<0); 	//数据采样从第1个时间边沿开始,CPHA=0  
-	SPI2->CR1|=1<<6; 		//SPI设备使能
 
 	SPI2_SetSpeed(SPI_SPEED_4);	//SPI2 SCK频率为36M/4=9Mhz
 // 	TIM6_Int_Init(1000,719);//100Khz计数频率，计数到1000为10ms

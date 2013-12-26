@@ -345,7 +345,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\CMSIS\startup;.\CMSIS;.\FWLIB\inc;.\HARDWARE;.\USER;.\SYSTEM\delay;.\SYSTEM\sys;.\SYSTEM\usart</IncludePath>
+              <IncludePath>.\CMSIS\startup;.\CMSIS;.\FWLIB\inc;.\HARDWARE;.\USER;.\SYSTEM\delay;.\SYSTEM\sys;.\SYSTEM\usart;.\HARDWARE\KEY;.\HARDWARE\LCD;.\HARDWARE\LED;.\HARDWARE\SPI;.\HARDWARE\ENC28J60</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -559,6 +559,33 @@
         </Group>
         <Group>
           <GroupName>HARDWARE</GroupName>
+          <Files>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\KEY\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\LCD\LCD.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\LED\led.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\SPI\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>enc28j60.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\ENC28J60\enc28j60.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

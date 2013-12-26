@@ -7,6 +7,9 @@
 #include "lcd.h"
 #include "led.h"
 #include "key.h"
+#include "enc28j60.h"	  
+
+const u8 mymac[6]={0x04,0x02,0x35,0x00,0x00,0x01};	//MACµÿ÷∑
 
 /**
   * @brief  Main program.
@@ -23,12 +26,12 @@ int main(void)
 	LED_Init();
 	KEY_init();
   LCD_Init();
+	LED1=ENC28J60_Init((u8*)mymac);
   /* Infinite loop */
   while (1)
   {
 
 
-	LCD_Clear(RED);
   }
 }
 
